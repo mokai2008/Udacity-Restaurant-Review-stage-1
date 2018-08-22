@@ -1,3 +1,17 @@
+// Service Worker Registration
+
+if('serviceWorker' in navigator) {
+
+    navigator.serviceWorker.register('/sw.js')
+    .then(function(reg) {
+        console.log('Registration Successful', reg);
+    })
+
+    .catch(function(err) {
+        console.log('Registration Failed', err);
+    })
+}
+
 let restaurant;
 var newMap;
 
@@ -202,3 +216,4 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
