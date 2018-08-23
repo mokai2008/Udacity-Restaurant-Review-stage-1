@@ -55,7 +55,7 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
     console.log('SW fetching', e.request.url);
     e.respondWith(
-        caches.match(e.request).then(function(response) {
+        caches.match(e.request, {ignoreSearch:true}).then(function(response) {
             if(response) {
                 console.log('SW found in cache', e.request.url);
                 return response;
